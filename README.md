@@ -1,11 +1,22 @@
-TypeScript Yarn Workspaces Demo
+TypeScript Yarn Workspaces Share Dependencies on Root Demo
 =================================
 
-使用`yarn`的workspaces功能来管理多个小workspace，之间可以方便的互相依赖
+使用`yarn`的workspaces功能管理多个package，并且在root共享一些dependency
+
+在这种情况下，子workspace的package.json中不需要在dependency中添加需要的依赖，可以直接用。
+（但是，感觉似乎有点不太好？要不放在peerDependencies里声明一下？）
+
+如果想把某个dependency安装在根目录，需要加上`-W`参数：
 
 ```
-npm install
-npm run demo
+yarn add lodash -W
 ```
 
-It will open page on browser automatically.
+运行
+
+```
+cd packages/workspaces-b
+yarn run demo
+```
+
+
